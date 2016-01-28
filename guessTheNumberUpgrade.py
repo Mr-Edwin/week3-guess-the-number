@@ -1,4 +1,4 @@
-# replace the contents of this comment with your name
+# Edwin Cruz
 import random
 
 # -------------------------------------------------------------------
@@ -7,11 +7,12 @@ import random
 #   'topLimit' which is the top limit for the random number generator
 # the function returns the random number generated to its caller
 def generateNumber( topLimit ):
+    return random.randint(1,topLimit)
     
-    # TO DO: ####################################################
-    # Write code in this function that calculates and           #
-    # returns a random number between 1 and the user's topLimit #
-    #############################################################
+	# TO DO: ####################################################
+  	# Write code in this function that calculates and           #
+   	# returns a random number between 1 and the user's topLimit #
+   	#############################################################
     
 # end of generateNumber function -------------------------------------
 
@@ -44,7 +45,14 @@ def askUserToGuess( times, secretNumber ):
 #   the 'userGuess' parameter is the answer entered by the user
 #   the 'userSecretNumber' parameter is the randomly generated number
 def evaluateAnswer( userGuess, userSecretNumber ):
-    
+    if userGuess < userSecretNumber:
+        print('Your guess is too low')
+        return False
+    if userGuess > userSecretNumber:
+        print('Your guess is too high')
+        return False
+    else:
+        return True
     # TO DO: ####################################################
     # Write code in this function that compares userGuess and   #
     # userSecretNumber. The code should:                        #
@@ -66,7 +74,12 @@ def evaluateAnswer( userGuess, userSecretNumber ):
 #       True, we'll show the right answer on the screen
 #       False, we won't show the right answer on the screen
 def playGame( showAnswer ):
-    
+    print('Hello user, what do you want your top limit to be?')
+    topLimit = int(input())
+    print('How many guesses do you think you will get it in?')
+    totalGuesses = int(input())
+    theNumber = generateNumber( topLimit )
+    print('Guess a number between 1 and ' + str(topLimit)+ '.' + ' You have ' + str(totalGuesses) + ' guesses.')
     # TO DO: ####################################################
     # Write code in this function that                          #
     # 1. Greets the user                                        #
@@ -98,3 +111,5 @@ def playGame( showAnswer ):
     else:
         print('Nope. The number I was thinking of was ' + str(theNumber))
 # end of playGame function -----------------------------------------
+
+playGame( False )
