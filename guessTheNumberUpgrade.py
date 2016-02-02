@@ -111,5 +111,3 @@ def playGame( showAnswer ):
     else:
         print('Nope. The number I was thinking of was ' + str(theNumber))
 # end of playGame function -----------------------------------------
-
-playGame( False )
